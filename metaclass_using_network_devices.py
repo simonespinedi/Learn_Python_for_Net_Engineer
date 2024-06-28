@@ -1,26 +1,26 @@
 import logging
 
-class Net_Inv_Meta(type):
-    device_counter = {}
+class Net_Inv_Meta(type): # Here is the Magic: the root level of Python objects is the type... type! A class is a "type" type.
+    device_counter = {} #keep track of how many classes are created
     
     def __new__ (cls, name, bases, dct):
-        new_class = super().__new__(cls, name, bases, dct)
+        new_class = super().__new__(cls, name, bases, dct) #__new__ allows to create new classes from the metaclass
         if name in ['Router', 'Switch', 'Firewall']:
             cls.device_counter[name] = cls.device_counter.get(name, 0) + 1
             Net_Inv_Meta.device_counter[name] = new_class
             logging.info(f"Registered {name} in Network Inventory")
         return new_class
     
-    def __init__(cls, name, bases, dct):
-        if 'configure_interface' not in dct or 'save_configuration' not in dct:
-            raise NotImplementedError(f"Class {name} must implement interface configuration and save configuration options")
-        super().__init__(name, bases, dct)
-        cls.setup_security_defaults(cls)
+    def __init__(cls, name, bases, dct): # Like any other classes __init__ is the constructor
+        if 'configure_interface' not in dct or 'save_configuration' not in dct: # Validation: all the derived classes from the metaclass must have those methods implemented
+            raise NotImplementedError(f"Class {name} must implement interface configuration and save configuration options") # otherwise we raise an error
+        super().__init__(name, bases, dct) # the derived classes inherit built-in aspects from the metaclass using the super() function
+        cls.setup_security_defaults(cls) 
         cls.vlan_management(cls)
         
-    @staticmethod
+    @staticmethod # static methods allows to query the method's attribute, even if they are inherited from metaclass and are not accessible by default
     def base_info(cls):
-        cls.hostname = cls.__name__
+        cls.hostname = cls.__name__ # we use the name of class derived from the metaclass as the default hostname
         cls.interfaces = ['24', '48']
         
     @staticmethod
@@ -34,8 +34,7 @@ class Net_Inv_Meta(type):
     def vlan_management(cls):
         cls.native_vlan = 'VLAN90'
         cls.log_changes = lambda message: logging.info(f"Configuration change in {cls.__name__}: {message}")
-        
-        
+                
     def connect(cls):
         print(f"{cls.__name__} connecting using default method.")
 
@@ -46,11 +45,11 @@ class Net_Inv_Meta(type):
         print(f"{cls.__name__} updating firmware using default method.")    
 
 
-class Router(metaclass=Net_Inv_Meta):
+class Router(metaclass=Net_Inv_Meta): # A class derived from metaclass definition
     
-    @property
+    @property # we use property to access value from a class's methods, if we don't use property we are pointed to the python object's id of the attribute that is like <function Net_Inv_Meta.vlan_management at 0x00000186E9731240> 
     def base_info(self):
-        Net_Inv_Meta.base_info(self.__class__)
+        Net_Inv_Meta.base_info(self.__class__) # here is a trick: we can't use the super() function cause MRO doesn't allows us to access metaclass attributes... so we call the directly!
         return(f"Device {self.hostname} has {self.interfaces[1]} interfaces")
     
     def configure_interface(self):
@@ -117,7 +116,7 @@ class Firewall(metaclass=Net_Inv_Meta):
     
 
 
-router1 = Router()
+router1 = Router() # class instantiation. By MRO (Method Resolution Order) a class instance doesn't have access to the metaclass attributes. That's why we use some static methods and property feature.
 switch1 = Switch()
 firewall1 = Firewall()
 
