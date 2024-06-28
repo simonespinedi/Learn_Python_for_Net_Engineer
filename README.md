@@ -3,6 +3,7 @@ Welcome to the Network-Powered Python Learning Space!
 About This Project
 
 Are you a network engineer interested in learning Python? This project uses network engineering concepts as a familiar backdrop to explore Python programming. By incorporating elements like routers, switches, and firewalls, we bridge the gap between networking knowledge and software development skills.
+
 Key Features
 
    - Device Registry: Automatically register any new device you create in Python. It’s practical and straightforward.
