@@ -6,9 +6,9 @@ Are you a network engineer interested in learning Python? This project uses netw
 
 Key Features
 
-   - Learn Python concepts using Network-related examples! We will use as many network subjects as possible to cover Python programming tecniques.
+   - Learn Python using Network Engineering examples! We will use as many network subjects as possible to cover Python programming tecniques.
    - Build useful skills, learn how to represent configuration changes, save settings, and update firmware through Python status emulations
-   - From concepts to facts: not only pure theorically aspects, we also build some real-world code implementations to be applied in Network Management and Deployement.
+   - From concepts to facts: not only pure theoretical aspects, we also build some real-world code implementations to be applied in Network Management and Deployement.
 
 Why Join?
 
