@@ -16,6 +16,7 @@ This project is crafted to make Python approachable by connecting it to everyday
 Participate and Learn
 
 Dive into the code, adjust it, or extend it. Whether you’re new to programming or looking to deepen your existing skills, there’s room here to learn and grow.
+
 Overview
 
 This isn’t just another coding tutorial. It’s a targeted, practical approach to learning Python for network engineers. You’ll tackle programming through tasks and problems you recognize, making the learning process more relevant and effective.
