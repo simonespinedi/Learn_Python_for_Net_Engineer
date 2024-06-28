@@ -1,4 +1,4 @@
-Welcome to the Network-Powered Python Learning Space!
+**Welcome to the Python Learning space for Network Engineers!**
 
 About This Project
 
@@ -6,15 +6,15 @@ Are you a network engineer interested in learning Python? This project uses netw
 
 Key Features
 
-   - Device Registry: Automatically register any new device you create in Python. It’s practical and straightforward.
-   - Device Management: Configure, save settings, and update firmware through Python scripts—making these tasks more intuitive for those with a networking background.
-   - Security and VLAN Settings: Learn how to manage security settings and VLAN configurations using Python, translating networking tasks into coding tasks.
-   - Firmware Management: Simplify firmware updates across different devices with scripts that you can understand and modify.
+   - Learn Python concepts using Network-related examples! We will use as many network subjects as possible to cover Python programming tecniques.
+   - Build useful skills, learn how to represent configuration changes, save settings, and update firmware through Python status emulations
+   - From concepts to facts: not only pure theorically aspects, we also build some real-world code implementations to be applied in Network Management and Deployement.
 
 Why Join?
 
 This project is crafted to make Python approachable by connecting it to everyday networking scenarios. It's not just about coding; it’s about enhancing your professional toolkit with automation skills that are becoming essential in the field of network engineering.
-Participate and Learn
+
+**Participate and Learn**
 
 Dive into the code, adjust it, or extend it. Whether you’re new to programming or looking to deepen your existing skills, there’s room here to learn and grow.
 
